@@ -1,0 +1,327 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Platform-level user profile",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 255 },
+        "displayName": { "type": "string", "maxLength": 150 },
+        "photoURL": { "type": "string", "maxLength": 500 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "defaultBusinessId": { "type": "string", "maxLength": 128 },
+        "pinHash": { "type": "string", "maxLength": 128 },
+        "pinSalt": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "email", "displayName"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "Personal notifications and invitations",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "type": { "type": "string", "enum": ["invitation", "system", "device_login_request"] },
+        "title": { "type": "string", "maxLength": 200 },
+        "message": { "type": "string", "maxLength": 1000 },
+        "status": { "type": "string", "enum": ["pending", "accepted", "declined", "read"] },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "businessName": { "type": "string", "maxLength": 150 },
+        "inviterName": { "type": "string", "maxLength": 150 },
+        "inviterEmail": { "type": "string", "maxLength": 255 },
+        "role": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string" },
+        "expiresAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "type", "title", "status", "createdAt"]
+    },
+    "Business": {
+      "title": "Business",
+      "description": "Top-level business (النشاط)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 150 },
+        "legalName": { "type": "string", "maxLength": 200 },
+        "businessType": { "type": "string", "maxLength": 100 },
+        "logo": { "type": "string", "maxLength": 500 },
+        "ownerId": { "type": "string", "maxLength": 128 },
+        "currency": { "type": "string", "maxLength": 10 },
+        "locale": { "type": "string", "maxLength": 10 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "ownerId", "currency", "createdAt"]
+    },
+    "Membership": {
+      "title": "Membership",
+      "description": "User membership and permissions in a business",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 255 },
+        "displayName": { "type": "string", "maxLength": 150 },
+        "role": { "type": "string", "enum": ["owner", "general_manager", "shop_manager", "cashier", "accountant", "customer"] },
+        "shopIds": { "type": "array" },
+        "permissions": { "type": "array" },
+        "pinHash": { "type": "string", "maxLength": 128 },
+        "pinSalt": { "type": "string", "maxLength": 64 },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "businessId", "userId", "email", "role", "isActive"]
+    },
+    "Shop": {
+      "title": "Shop",
+      "description": "Shop / Branch working unit",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 150 },
+        "type": { "type": "string", "maxLength": 50 },
+        "address": { "type": "string", "maxLength": 300 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "isDefault": { "type": "boolean" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "businessId", "name", "type", "isActive"]
+    },
+    "Account": {
+      "title": "Account",
+      "description": "Chart of accounts ledger account",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "code": { "type": "string", "maxLength": 30 },
+        "name_ar": { "type": "string", "maxLength": 150 },
+        "name_en": { "type": "string", "maxLength": 150 },
+        "group": { "type": "number" },
+        "parent": { "type": "string", "maxLength": 30 },
+        "is_leaf": { "type": "boolean" },
+        "is_system": { "type": "boolean" },
+        "classification": { "type": "string" },
+        "branch_id": { "type": "string", "maxLength": 128 },
+        "balance": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "businessId", "code", "name_ar", "name_en", "group", "is_leaf", "is_system"]
+    },
+    "JournalEntry": {
+      "title": "JournalEntry",
+      "description": "Balanced immutable accounting journal entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "business_id": { "type": "string", "maxLength": 128 },
+        "shop_id": { "type": "string", "maxLength": 128 },
+        "branch_id": { "type": "string", "maxLength": 128 },
+        "entry_number": { "type": "string", "maxLength": 50 },
+        "date": { "type": "string" },
+        "description": { "type": "string", "maxLength": 500 },
+        "source_document_id": { "type": "string", "maxLength": 128 },
+        "shift_id": { "type": "string", "maxLength": 128 },
+        "event_type": { "type": "string", "maxLength": 60 },
+        "debit_total": { "type": "number" },
+        "credit_total": { "type": "number" },
+        "lines": { "type": "array" },
+        "is_reversed": { "type": "boolean" },
+        "reversal_entry_id": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string" },
+        "createdBy": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "business_id", "shop_id", "entry_number", "date", "debit_total", "credit_total", "lines", "event_type"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Inventory product or billable service",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 200 },
+        "barcode": { "type": "string", "maxLength": 100 },
+        "type": { "type": "string", "enum": ["physical", "service", "addon"] },
+        "category": { "type": "string", "maxLength": 100 },
+        "unit": { "type": "string", "maxLength": 30 },
+        "costPrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "stock": { "type": "number" },
+        "minStock": { "type": "number" },
+        "shopIds": { "type": "array" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "businessId", "name", "type", "costPrice", "sellingPrice", "isActive"]
+    },
+    "Party": {
+      "title": "Party",
+      "description": "Unified party model for customer and supplier",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 200 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "email": { "type": "string", "maxLength": 255 },
+        "roles": { "type": "array" },
+        "balance": { "type": "number" },
+        "customerProfile": { "type": "object" },
+        "supplierProfile": { "type": "object" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "businessId", "name", "roles"]
+    },
+    "Shift": {
+      "title": "Shift",
+      "description": "POS cashier register shift session",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "shopId": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "userName": { "type": "string", "maxLength": 150 },
+        "deviceId": { "type": "string", "maxLength": 128 },
+        "status": { "type": "string", "enum": ["open", "closed"] },
+        "openingCash": { "type": "number" },
+        "closingCashExpected": { "type": "number" },
+        "closingCashActual": { "type": "number" },
+        "difference": { "type": "number" },
+        "openedAt": { "type": "string" },
+        "closedAt": { "type": "string" },
+        "notes": { "type": "string", "maxLength": 500 }
+      },
+      "required": ["id", "businessId", "shopId", "userId", "status", "openingCash", "openedAt"]
+    },
+    "Invoice": {
+      "title": "Invoice",
+      "description": "POS sales invoice, purchase bill, or returns",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "shopId": { "type": "string", "maxLength": 128 },
+        "shiftId": { "type": "string", "maxLength": 128 },
+        "invoiceNumber": { "type": "string", "maxLength": 50 },
+        "type": { "type": "string", "enum": ["sale", "purchase", "sale_return", "purchase_return"] },
+        "partyId": { "type": "string", "maxLength": 128 },
+        "partyName": { "type": "string", "maxLength": 200 },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discountTotal": { "type": "number" },
+        "taxTotal": { "type": "number" },
+        "grandTotal": { "type": "number" },
+        "paymentStatus": { "type": "string", "enum": ["paid", "partial", "unpaid"] },
+        "payments": { "type": "array" },
+        "status": { "type": "string", "enum": ["draft", "completed", "cancelled"] },
+        "preparationStatus": { "type": "string", "enum": ["received", "preparing", "ready", "delivered"] },
+        "journalEntryId": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string" },
+        "createdBy": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "businessId", "shopId", "invoiceNumber", "type", "grandTotal", "status", "createdAt"]
+    },
+    "Voucher": {
+      "title": "Voucher",
+      "description": "Treasury or adjustment voucher",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "shopId": { "type": "string", "maxLength": 128 },
+        "shiftId": { "type": "string", "maxLength": 128 },
+        "voucherNumber": { "type": "string", "maxLength": 50 },
+        "type": { "type": "string", "enum": ["customer_receipt", "supplier_payment", "expense", "stock_waste", "cash_difference", "owner_drawing", "capital_injection"] },
+        "partyId": { "type": "string", "maxLength": 128 },
+        "partyName": { "type": "string", "maxLength": 200 },
+        "amount": { "type": "number" },
+        "reason": { "type": "string", "maxLength": 500 },
+        "expenseCategory": { "type": "string", "maxLength": 100 },
+        "journalEntryId": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string" },
+        "createdBy": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "businessId", "shopId", "voucherNumber", "type", "amount", "createdAt"]
+    },
+    "Device": {
+      "title": "Device",
+      "description": "Registered shop terminal or business device",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "businessId": { "type": "string", "maxLength": 128 },
+        "shopId": { "type": "string", "maxLength": 128 },
+        "deviceName": { "type": "string", "maxLength": 150 },
+        "isAuthorized": { "type": "boolean" },
+        "deviceToken": { "type": "string", "maxLength": 128 },
+        "lastLoginAt": { "type": "string" },
+        "registeredBy": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "businessId", "deviceName", "isAuthorized"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Platform user profiles"
+    },
+    "/users/{userId}/notifications/{notificationId}": {
+      "schema": { "$ref": "#/entities/Notification" },
+      "description": "User inbox and business invitations"
+    },
+    "/businesses/{businessId}": {
+      "schema": { "$ref": "#/entities/Business" },
+      "description": "Business organizations"
+    },
+    "/businesses/{businessId}/memberships/{membershipId}": {
+      "schema": { "$ref": "#/entities/Membership" },
+      "description": "Business members, roles and permissions"
+    },
+    "/businesses/{businessId}/shops/{shopId}": {
+      "schema": { "$ref": "#/entities/Shop" },
+      "description": "Business shops and branch units"
+    },
+    "/businesses/{businessId}/devices/{deviceId}": {
+      "schema": { "$ref": "#/entities/Device" },
+      "description": "Registered business POS terminals"
+    },
+    "/businesses/{businessId}/accounts/{accountId}": {
+      "schema": { "$ref": "#/entities/Account" },
+      "description": "Universal chart of accounts"
+    },
+    "/businesses/{businessId}/journal_entries/{entryId}": {
+      "schema": { "$ref": "#/entities/JournalEntry" },
+      "description": "Immutable double-entry journal entries"
+    },
+    "/businesses/{businessId}/products/{productId}": {
+      "schema": { "$ref": "#/entities/Product" },
+      "description": "Products, services and stock tracking"
+    },
+    "/businesses/{businessId}/parties/{partyId}": {
+      "schema": { "$ref": "#/entities/Party" },
+      "description": "Unified parties (customers and suppliers)"
+    },
+    "/businesses/{businessId}/shifts/{shiftId}": {
+      "schema": { "$ref": "#/entities/Shift" },
+      "description": "Cashier POS work shifts"
+    },
+    "/businesses/{businessId}/invoices/{invoiceId}": {
+      "schema": { "$ref": "#/entities/Invoice" },
+      "description": "Sales, purchases, and return invoices"
+    },
+    "/businesses/{businessId}/vouchers/{voucherId}": {
+      "schema": { "$ref": "#/entities/Voucher" },
+      "description": "Treasury and adjustment vouchers"
+    }
+  }
+}

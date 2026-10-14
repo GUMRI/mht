@@ -1,0 +1,131 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isUser(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isBusinessOwner(bizId) {
+      return isSignedIn() &&
+        exists(/databases/$(database)/documents/businesses/$(bizId)) &&
+        get(/databases/$(database)/documents/businesses/$(bizId)).data.ownerId == request.auth.uid;
+    }
+
+    function isBusinessMember(bizId) {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/businesses/$(bizId)/memberships/$(request.auth.uid)) ||
+        isBusinessOwner(bizId)
+      );
+    }
+
+    function isManagerOrOwner(bizId) {
+      return isSignedIn() && (
+        (exists(/databases/$(database)/documents/businesses/$(bizId)/memberships/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/businesses/$(bizId)/memberships/$(request.auth.uid)).data.role in ['owner', 'general_manager']) ||
+        isBusinessOwner(bizId)
+      );
+    }
+
+    // Platform user profiles
+    match /users/{userId} {
+      allow get, list: if isSignedIn();
+      allow create, update: if isUser(userId);
+      allow delete: if false;
+
+      match /notifications/{notifId} {
+        allow read, write: if isUser(userId);
+      }
+      match /devices/{devId} {
+        allow read, write: if isUser(userId);
+      }
+    }
+
+    // Collection group for memberships by user
+    match /{path=**}/memberships/{memberId} {
+      allow read: if isSignedIn() && (request.auth.uid == memberId || resource.data.userId == request.auth.uid);
+    }
+
+    // Business Root
+    match /businesses/{businessId} {
+      allow get: if isSignedIn() && (resource.data.ownerId == request.auth.uid || isBusinessMember(businessId));
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && request.resource.data.ownerId == request.auth.uid;
+      allow update, delete: if isBusinessOwner(businessId);
+
+      // Memberships
+      match /memberships/{memberId} {
+        allow read: if isBusinessMember(businessId);
+        allow create: if (isSignedIn() && request.auth.uid == memberId) || isManagerOrOwner(businessId);
+        allow update, delete: if isManagerOrOwner(businessId);
+      }
+
+      // Shops
+      match /shops/{shopId} {
+        allow read: if isBusinessMember(businessId);
+        allow create, update, delete: if isManagerOrOwner(businessId);
+      }
+
+      // Accounts: allow create by signed-in users with zero document lookups in batch
+      match /accounts/{accountId} {
+        allow read: if isBusinessMember(businessId);
+        allow create: if isSignedIn() && request.resource.data.businessId == businessId;
+        allow update: if isBusinessMember(businessId);
+        allow delete: if isManagerOrOwner(businessId) && resource.data.is_system != true;
+      }
+
+      // Journal Entries: IMMUTABLE audit trail
+      match /journal_entries/{entryId} {
+        allow read: if isBusinessMember(businessId);
+        allow create: if isSignedIn() &&
+          request.resource.data.businessId == businessId &&
+          request.resource.data.debit_total == request.resource.data.credit_total;
+        allow update, delete: if false;
+      }
+
+      // Products & Inventory
+      match /products/{productId} {
+        allow read: if isBusinessMember(businessId);
+        allow create, update, delete: if isBusinessMember(businessId);
+      }
+
+      // Unified Parties (Customers, Suppliers)
+      match /parties/{partyId} {
+        allow read: if isBusinessMember(businessId);
+        allow create, update, delete: if isBusinessMember(businessId);
+      }
+
+      // POS Shifts
+      match /shifts/{shiftId} {
+        allow read: if isBusinessMember(businessId);
+        allow create, update: if isBusinessMember(businessId);
+        allow delete: if false;
+      }
+
+      // Invoices
+      match /invoices/{invoiceId} {
+        allow read: if isBusinessMember(businessId);
+        allow create, update: if isBusinessMember(businessId);
+        allow delete: if false;
+      }
+
+      // Vouchers
+      match /vouchers/{voucherId} {
+        allow read: if isBusinessMember(businessId);
+        allow create: if isBusinessMember(businessId);
+        allow update, delete: if false;
+      }
+
+      // Devices
+      match /devices/{deviceId} {
+        allow read: if isBusinessMember(businessId);
+        allow create, update, delete: if isManagerOrOwner(businessId);
+      }
+    }
+  }
+}

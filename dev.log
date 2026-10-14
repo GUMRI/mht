@@ -1,0 +1,395 @@
+
+> ai-studio-angular-app@0.0.0 dev
+> cross-env ng serve --port=3000 --host=0.0.0.0 --allowed-hosts=true ${DISABLE_HMR:+--live-reload=false}
+
+
+Warning: This is a simple server for use in testing or debugging Angular applications
+locally. It hasn't been reviewed for security issues.
+
+Binding this server to an open connection can result in compromising your application or
+computer. Using a different host than the one passed to the "--host" flag might result in
+websocket connection issues.
+
+❯ Building...
+✔ Building...
+Initial chunk files | Names         |  Raw size
+main.js             | main          | 804.21 kB |
+styles.css          | styles        |   6.47 kB |
+
+                    | Initial total | 810.68 kB
+
+Application bundle generation complete. [6.704 seconds] - 2026-10-14T17:52:56.349Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:101:55:
+[37m      101 │ ...[class.active]="posOrders.activeOrder()?.[32mactiveSubView[37m === 'pos'"
+          ╵                                             [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:110:55:
+[37m      110 │ ...ass.active]="posOrders.activeOrder()?.[32mactiveSubView[37m === 'status'"
+          ╵                                          [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:122:40:
+[37m      122 │           @if (posOrders.activeOrder()?.[32mactiveSubView[37m === 'pos') {
+          ╵                                         [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:181:56:
+[37m      181 │ ...            [value]="posOrders.activeOrder()?.[32mcustomer[37m?.id || ''"
+          ╵                                                  [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:262:40:
+[37m      262 │ ...      @if (posOrders.activeOrder()?.[32mactiveSubView[37m === 'status') {
+          ╵                                        [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:266:70:
+[37m      266 │ ...الة تجهيز الطلب {{ posOr[32mders.[37mactiveOrder()?.title }}
+          ╵                            [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:274:55:
+[37m      274 │ ... (item of posOrders.activeOrder()?.[32mitems[37m; track item.productId) {
+          ╵                                       [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:300:46:
+[37m      300 │                 @if (posOrders.activeOrder()?.[32mitems[37m?.length === 0) {
+          ╵                                               [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:402:42:
+[37m      402 │             @if (posOrders.activeOrder()?.[32mcustomer[37m) {
+          ╵                                           [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:405:54:
+[37m      405 │ ...      العميل: {{ posOrders.activeOrd[32mer()?.cu[37mstomer?.name }}
+          ╵                                        [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:408:82:
+[37m      408 │ ...formatCurrency(posOrders.ac[32mtiveOrde[37mr()?.customer?.customerProf...
+          ╵                               [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:408:199:
+[37m      408 │ ...لية: {{ i18n.formatCurre[32mncy(posO[37mrders.activeOrder()?.custom...
+          ╵                            [32m~~~~~~~~[0m
+
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.0.2:3000/
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [2.927 seconds] - 2026-10-14T17:54:37.002Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:101:55:
+[37m      101 │ ...[class.active]="posOrders.activeOrder()?.[32mactiveSubView[37m === 'pos'"
+          ╵                                             [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:110:55:
+[37m      110 │ ...ass.active]="posOrders.activeOrder()?.[32mactiveSubView[37m === 'status'"
+          ╵                                          [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:122:40:
+[37m      122 │           @if (posOrders.activeOrder()?.[32mactiveSubView[37m === 'pos') {
+          ╵                                         [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:181:56:
+[37m      181 │ ...            [value]="posOrders.activeOrder()?.[32mcustomer[37m?.id || ''"
+          ╵                                                  [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:262:40:
+[37m      262 │ ...      @if (posOrders.activeOrder()?.[32mactiveSubView[37m === 'status') {
+          ╵                                        [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:266:70:
+[37m      266 │ ...الة تجهيز الطلب {{ posOr[32mders.[37mactiveOrder()?.title }}
+          ╵                            [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:274:55:
+[37m      274 │ ... (item of posOrders.activeOrder()?.[32mitems[37m; track item.productId) {
+          ╵                                       [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:300:46:
+[37m      300 │                 @if (posOrders.activeOrder()?.[32mitems[37m?.length === 0) {
+          ╵                                               [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:402:42:
+[37m      402 │             @if (posOrders.activeOrder()?.[32mcustomer[37m) {
+          ╵                                           [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:405:54:
+[37m      405 │ ...      العميل: {{ posOrders.activeOrd[32mer()?.cu[37mstomer?.name }}
+          ╵                                        [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:408:82:
+[37m      408 │ ...formatCurrency(posOrders.ac[32mtiveOrde[37mr()?.customer?.customerProf...
+          ╵                               [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:408:199:
+[37m      408 │ ...لية: {{ i18n.formatCurre[32mncy(posO[37mrders.activeOrder()?.custom...
+          ╵                            [32m~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'handleDemoSignIn' does not exist on type 'LoginComponent'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/auth/login.component.ts:58:19:
+[37m      58 │           (click)="[32mhandleDemoSignIn[37m()"
+         ╵                    [32m~~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.489 seconds] - 2026-10-14T17:55:24.310Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:101:55:
+[37m      101 │ ...[class.active]="posOrders.activeOrder()?.[32mactiveSubView[37m === 'pos'"
+          ╵                                             [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:110:55:
+[37m      110 │ ...ass.active]="posOrders.activeOrder()?.[32mactiveSubView[37m === 'status'"
+          ╵                                          [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:122:40:
+[37m      122 │           @if (posOrders.activeOrder()?.[32mactiveSubView[37m === 'pos') {
+          ╵                                         [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:181:56:
+[37m      181 │ ...            [value]="posOrders.activeOrder()?.[32mcustomer[37m?.id || ''"
+          ╵                                                  [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:262:40:
+[37m      262 │ ...      @if (posOrders.activeOrder()?.[32mactiveSubView[37m === 'status') {
+          ╵                                        [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:266:70:
+[37m      266 │ ...الة تجهيز الطلب {{ posOr[32mders.[37mactiveOrder()?.title }}
+          ╵                            [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:274:55:
+[37m      274 │ ... (item of posOrders.activeOrder()?.[32mitems[37m; track item.productId) {
+          ╵                                       [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:300:46:
+[37m      300 │                 @if (posOrders.activeOrder()?.[32mitems[37m?.length === 0) {
+          ╵                                               [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:402:42:
+[37m      402 │             @if (posOrders.activeOrder()?.[32mcustomer[37m) {
+          ╵                                           [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:405:54:
+[37m      405 │ ...      العميل: {{ posOrders.activeOrd[32mer()?.cu[37mstomer?.name }}
+          ╵                                        [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:408:82:
+[37m      408 │ ...formatCurrency(posOrders.ac[32mtiveOrde[37mr()?.customer?.customerProf...
+          ╵                               [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:408:199:
+[37m      408 │ ...لية: {{ i18n.formatCurre[32mncy(posO[37mrders.activeOrder()?.custom...
+          ╵                            [32m~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'loginAsDemoUser' does not exist on type 'AuthService'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/auth/login.component.ts:318:45:
+[37m      318 │       const profile = await this.authService.[32mloginAsDemoUser[37m();
+          ╵                                              [32m~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Initial chunk files | Names         |  Raw size
+main.js             | main          | 807.65 kB |
+styles.css          | styles        |   6.47 kB |
+
+                    | Initial total | 814.13 kB
+
+Application bundle generation complete. [0.971 seconds] - 2026-10-14T17:56:03.920Z
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:101:55:
+[37m      101 │ ...[class.active]="posOrders.activeOrder()?.[32mactiveSubView[37m === 'pos'"
+          ╵                                             [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:110:55:
+[37m      110 │ ...ass.active]="posOrders.activeOrder()?.[32mactiveSubView[37m === 'status'"
+          ╵                                          [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:122:40:
+[37m      122 │           @if (posOrders.activeOrder()?.[32mactiveSubView[37m === 'pos') {
+          ╵                                         [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:181:56:
+[37m      181 │ ...            [value]="posOrders.activeOrder()?.[32mcustomer[37m?.id || ''"
+          ╵                                                  [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:262:40:
+[37m      262 │ ...      @if (posOrders.activeOrder()?.[32mactiveSubView[37m === 'status') {
+          ╵                                        [32m~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:266:70:
+[37m      266 │ ...الة تجهيز الطلب {{ posOr[32mders.[37mactiveOrder()?.title }}
+          ╵                            [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:274:55:
+[37m      274 │ ... (item of posOrders.activeOrder()?.[32mitems[37m; track item.productId) {
+          ╵                                       [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:300:46:
+[37m      300 │                 @if (posOrders.activeOrder()?.[32mitems[37m?.length === 0) {
+          ╵                                               [32m~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:402:42:
+[37m      402 │             @if (posOrders.activeOrder()?.[32mcustomer[37m) {
+          ╵                                           [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:405:54:
+[37m      405 │ ...      العميل: {{ posOrders.activeOrd[32mer()?.cu[37mstomer?.name }}
+          ╵                                        [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:408:82:
+[37m      408 │ ...formatCurrency(posOrders.ac[32mtiveOrde[37mr()?.customer?.customerProf...
+          ╵                               [32m~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: NG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator. Find more at https://v21.angular.dev/extended-diagnostics/NG8107[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/features/pos/pos.component.ts:408:199:
+[37m      408 │ ...لية: {{ i18n.formatCurre[32mncy(posO[37mrders.activeOrder()?.custom...
+          ╵                            [32m~~~~~~~~[0m
+
+
+Page reload sent to client(s).
